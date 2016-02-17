@@ -1055,9 +1055,9 @@ class Lift(DslExpression):
         commodity_name = self.commodity_name.evaluate(**kwds)
         mode = self.mode.evaluate(**kwds)
         if mode.startswith('year'):
-            perturbation = json.dumps((commodity_name, present_time.year, 0, 0))
+            perturbation = json.dumps((commodity_name, present_time.year, 1, 1))
         elif mode.startswith('mon'):
-            perturbation = json.dumps((commodity_name, present_time.year, present_time.month, 0))
+            perturbation = json.dumps((commodity_name, present_time.year, present_time.month, 1))
         elif mode.startswith('da'):
             perturbation = json.dumps((commodity_name, present_time.year, present_time.month, present_time.day))
         else:
