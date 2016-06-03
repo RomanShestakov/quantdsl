@@ -27,7 +27,7 @@ class CallDependencies(EventSourcedEntity):
 
 def register_call_dependencies(call_id, dependencies):
     created_event = CallDependencies.Created(entity_id=call_id, dependencies=dependencies)
-    call_dependencies = CallDependencies.mutator(event=created_event)
+    call_dependencies = CallDependencies.mutate(event=created_event)
     publish(created_event)
     return call_dependencies
 

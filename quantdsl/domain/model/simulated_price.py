@@ -26,7 +26,7 @@ def register_simulated_price(market_simulation_id, market_name, fixing_date, del
     simulated_price_id = make_simulated_price_id(market_simulation_id, market_name, fixing_date, delivery_date)
     # raise Exception(simulated_price_id)
     created_event = SimulatedPrice.Created(entity_id=simulated_price_id, value=price_value)
-    simulated_price = SimulatedPrice.mutator(event=created_event)
+    simulated_price = SimulatedPrice.mutate(event=created_event)
     publish(created_event)
     return simulated_price
 

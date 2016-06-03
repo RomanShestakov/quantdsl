@@ -22,7 +22,7 @@ class ContractSpecification(EventSourcedEntity):
 
 def register_contract_specification(specification):
     created_event = ContractSpecification.Created(entity_id=create_uuid4(), specification=specification)
-    contract_specification = ContractSpecification.mutator(event=created_event)
+    contract_specification = ContractSpecification.mutate(event=created_event)
     publish(created_event)
     return contract_specification
 

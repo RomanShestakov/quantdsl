@@ -21,7 +21,7 @@ class CallLink(EventSourcedEntity):
 
 def register_call_link(link_id, call_id):
     created_event = CallLink.Created(entity_id=link_id, call_id=call_id)
-    call_link = CallLink.mutator(event=created_event)
+    call_link = CallLink.mutate(event=created_event)
     publish(created_event)
     return call_link
 

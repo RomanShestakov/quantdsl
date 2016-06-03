@@ -31,7 +31,7 @@ def start_contract_valuation(entity_id, dependency_graph_id, market_simulation_i
         market_simulation_id=market_simulation_id,
         dependency_graph_id=dependency_graph_id,
     )
-    contract_valuation = ContractValuation.mutator(event=contract_valuation_created)
+    contract_valuation = ContractValuation.mutate(event=contract_valuation_created)
     publish(contract_valuation_created)
     return contract_valuation
 

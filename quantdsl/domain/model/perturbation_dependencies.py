@@ -27,7 +27,7 @@ class PerturbationDependencies(EventSourcedEntity):
 
 def register_perturbation_dependencies(call_requirement_id, dependencies):
     created_event = PerturbationDependencies.Created(entity_id=call_requirement_id, dependencies=dependencies)
-    perturbation_dependencies = PerturbationDependencies.mutator(event=created_event)
+    perturbation_dependencies = PerturbationDependencies.mutate(event=created_event)
     publish(created_event)
     return perturbation_dependencies
 

@@ -34,7 +34,7 @@ def register_call_requirement(call_id, dsl_source, effective_present_time):
         dsl_source=dsl_source,
         effective_present_time=effective_present_time
     )
-    call_requirement = CallRequirement.mutator(event=created_event)
+    call_requirement = CallRequirement.mutate(event=created_event)
     publish(created_event)
     return call_requirement
 

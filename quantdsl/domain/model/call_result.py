@@ -59,7 +59,7 @@ def register_call_result(call_id, result_value, perturbed_values, contract_valua
                                        # Todo: Also save the list of fixing dates separately (if needs to be saved).
                                        dependency_graph_id=dependency_graph_id,
                                        )
-    call_result = CallResult.mutator(event=created_event)
+    call_result = CallResult.mutate(event=created_event)
 
     publish(created_event)
     return call_result

@@ -28,7 +28,7 @@ class SimulatedPriceRequirements(EventSourcedEntity):
 def register_simulated_price_requirements(call_requirement_id, requirements):
     assert isinstance(requirements, list), type(requirements)
     event = SimulatedPriceRequirements.Created(entity_id=call_requirement_id, requirements=requirements)
-    entity = SimulatedPriceRequirements.mutator(event=event)
+    entity = SimulatedPriceRequirements.mutate(event=event)
     publish(event)
     return entity
 

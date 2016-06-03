@@ -29,7 +29,7 @@ def register_market_calibration(price_process_name, calibration_params):
     created_event = MarketCalibration.Created(entity_id=create_uuid4(),
                                               price_process_name=price_process_name,
                                               calibration_params=calibration_params)
-    call_result = MarketCalibration.mutator(event=created_event)
+    call_result = MarketCalibration.mutate(event=created_event)
     publish(created_event)
     return call_result
 

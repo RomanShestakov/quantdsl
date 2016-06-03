@@ -50,7 +50,7 @@ def register_market_simulation(market_calibration_id, observation_date, requirem
                                              path_count=path_count,
                                              interest_rate=interest_rate,
                                              )
-    call_result = MarketSimulation.mutator(event=created_event)
+    call_result = MarketSimulation.mutate(event=created_event)
     publish(created_event)
     return call_result
 
